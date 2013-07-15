@@ -41,18 +41,17 @@
 	RewriteCond %{REQUEST_FILENAME} !-l
 	RewriteRule .* index.php [L]
 	
-	##### Redirect to www. version of domain #####
+	### Redirect from http://domain to http://www.domain
+	RewriteCond %{HTTP_HOST} !^www\..+$ [NC]
+	RewriteRule ^ http://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 	
-	RewriteCond %{HTTP_HOST} !^(.*)\.domain\.co.uk$ [NC] 
-	RewriteRule ^(.*)$ http://www.domain.co.uk/$1 [R=301,L] 
-	
-	##### Redirect to away from /index.php and /home 			#####
+	##### Redirect away from /index.php and /home 				#####
 	##### Warning: This index.php rewrite will prevent Magento 	#####
 	##### Connect from working. Simply comment out the 			#####
 	##### following two lines of code when using Connect.		#####
-	
-	RewriteCond %{THE_REQUEST} ^.*/index.php 
-	RewriteRule ^(.*)index.php$ http://www.domain.co.uk/$1 [R=301,L]
+	RewriteCond %{THE_REQUEST} ^.*/index.php  
+	RewriteRule ^(.*)index.php$ http://www.%{HTTP_HOST}%{REQUEST_URI}$1 [R=301,L] 
+
 	redirect 301 /home http://www.domain.co.uk
 </IfModule>
 
