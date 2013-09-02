@@ -39,7 +39,6 @@
 	RewriteCond %{REQUEST_FILENAME} !-l
 	RewriteRule .* index.php [L]
 	
-	### Redirect from http://domain to http://www.domain
 	#### Redirect from http://domain to http://www.domain ####
 	## Comment the following two lines for sites on subdomains ##
 	RewriteCond %{HTTP_HOST} !^www\..+$ [NC]
@@ -53,7 +52,6 @@
 	RewriteCond %{THE_REQUEST} ^.*/index.php  
 	RewriteRule ^(.*)index.php$ http://www.%{HTTP_HOST}%{REQUEST_URI}$1 [R=301,L] 
 
-	redirect 301 /home http://www.domain.co.uk
 	redirect 301 /home http://www.%{HTTP_HOST}
 </IfModule>
 
