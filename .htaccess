@@ -82,6 +82,9 @@
 <ifModule mod_headers.c>
 	Header unset ETag
 	Header unset Last-Modified
+	
+	## Stops website being sourced via iFrame
+	Header set X-Frame-Options DENY
 </ifModule>
 
 
