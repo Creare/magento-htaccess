@@ -49,8 +49,8 @@
 	##### Warning: This index.php rewrite will prevent Magento 	#####
 	##### Connect from working. Simply comment out the 			#####
 	##### following two lines of code when using Connect.		#####
-	RewriteCond %{THE_REQUEST} ^.*/index.php  
-	RewriteRule ^(.*)index.php$ http://www.%{HTTP_HOST}%{REQUEST_URI}$1 [R=301,L] 
+    	RewriteCond %{THE_REQUEST} ^.*/index.php
+    	RewriteRule ^(.*)index.php$ http://www.domain.co.uk/$1 [R=301,L]
 
 	redirect 301 /home http://www.%{HTTP_HOST}
 </IfModule>
