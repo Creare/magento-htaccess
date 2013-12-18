@@ -41,17 +41,23 @@
 	
 	#### Redirect from http://domain to http://www.domain ####
 	## Comment the following two lines for sites on subdomains ##
-	RewriteCond %{HTTP_HOST} !^www\..+$ [NC]
-	RewriteRule ^ http://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+	#RewriteCond %{HTTP_HOST} !^www\..+$ [NC]
+	#RewriteRule ^ http://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 	## End of subdomain comment block ##
 	
-	##### Redirect away from /index.php and /home			#####
-	##### Warning: This index.php rewrite will prevent Magento 	#####
-	##### Connect from working. Simply comment out the 		#####
-	##### following two lines of code when using Connect.		#####
-    	RewriteCond %{THE_REQUEST} ^.*/index.php
-    	RewriteRule ^(.*)index.php$ http://www.domain.co.uk/$1 [R=301,L]
+	##### Redirect away from /index.php and /home			            #####
+	##### Warning: This index.php rewrite will prevent Magento 	        #####
+	##### Connect from working. Simply comment out the 		            #####
+	##### following two lines of code when using Connect.		        #####
+	##### Please note - http://www. if not using www simply use http:// #####
+    RewriteCond %{THE_REQUEST} ^.*/index.php
+    RewriteRule ^(.*)index.php$ http://www.%{HTTP_HOST}/$1 [R=301,L]
 
+    ##### Please note - http://www. if not using www simply use http:// #####
+    RewriteCond %{THE_REQUEST} ^.*/index.php
+    RewriteRule ^(.*)index.php/(.*)$ http://www.%{HTTP_HOST}/$2 [R=301,L]
+
+	##### Please note - http://www. if not using www simply use http:// #####
 	redirect 301 /home http://www.%{HTTP_HOST}
 </IfModule>
 
@@ -218,3 +224,5 @@
 
 	Order allow,deny
 	Allow from all
+
+#muahcha
