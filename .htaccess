@@ -53,10 +53,6 @@
     RewriteCond %{THE_REQUEST} ^.*/index.php
     RewriteRule ^(.*)index.php$ http://www.%{HTTP_HOST}/$1 [R=301,L]
 
-    ##### Please note - http://www. if not using www simply use http:// #####
-    RewriteCond %{THE_REQUEST} ^.*/index.php
-    RewriteRule ^(.*)index.php/(.*)$ http://www.%{HTTP_HOST}/$2 [R=301,L]
-
 	##### Please note - http://www. if not using www simply use http:// #####
 	redirect 301 /home http://www.%{HTTP_HOST}
 </IfModule>
