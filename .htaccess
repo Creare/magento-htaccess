@@ -30,8 +30,8 @@
 ##### Necessary redirects and rewrites for search engines #####
 
 <IfModule mod_rewrite.c>
-	RewriteCond %{HTTP_HOST} !^www.yourdomain.com$ [NC]
-	RewriteRule ^(.*)$ http://www.yourdomain.com/$1 [R=301,L]
+	#RewriteCond %{HTTP_HOST} !^www.yourdomain.com$ [NC]
+	#RewriteRule ^(.*)$ http://www.yourdomain.com/$1 [R=301,L]
 	
 	##### Redirect away from /index.php and /home	
 	##### Warning: This index.php rewrite will prevent Magento 
