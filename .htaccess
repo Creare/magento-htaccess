@@ -208,7 +208,8 @@
 	#AddDefaultCharset UTF-8
 	
 	
-##### Force IE8 compatibility when using IE8+ #####
+##### Force IE8 compatibility when using IE8+         #####
+##### May cause issues within Windows Mobile Browsers ##### 
 	
 	BrowserMatch MSIE best-standards-support
 	Header set X-UA-Compatible IE=8 env=best-standards-support
