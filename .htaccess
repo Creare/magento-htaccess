@@ -59,7 +59,7 @@
 ##### mod_deflate compresses your output to lower the file size being sent to the client #####
 
 <IfModule mod_deflate.c>
-	SetOutputFilter DEFLATE
+	AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript
 	BrowserMatch ^Mozilla/4 gzip-only-text/html
 	BrowserMatch ^Mozilla/4\.0[678] no-gzip
 	BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
