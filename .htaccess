@@ -2,6 +2,10 @@
 ################## Creare's Magento .htaccess File #################
 #################################################################### 
 
+##### Recognise SSL when set at a load balancer/proxy level (for CloudFlare) #####
+
+SetEnvIf X-Forwarded-Proto https HTTPS=on
+
 ##### Block unwanted Bots that clog the server #####
 
 	RewriteCond %{HTTP_USER_AGENT} MJ12bot
