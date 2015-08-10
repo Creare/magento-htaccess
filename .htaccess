@@ -8,6 +8,13 @@
     deny from all
 </files>
 
+### Protect .htaccess
+<Files ~ "^.*\.([Hh][Tt][Aa])">
+    order allow,deny
+    deny from all
+    satisfy all
+</Files>
+
 ##### Recognise SSL when set at a load balancer/proxy level (for CloudFlare) #####
 
 SetEnvIf X-Forwarded-Proto https HTTPS=on
