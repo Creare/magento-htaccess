@@ -216,7 +216,7 @@ SetEnvIf X-Forwarded-Proto https HTTPS=on
 
 ##### Disable ETags http://developer.yahoo.com/performance/rules.html#etags #####
 
-	ETag None
+	FileETag None
 
 
 ##### Prevent character encoding issues from server overrides #####
