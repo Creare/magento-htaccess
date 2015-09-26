@@ -52,10 +52,11 @@ SetEnvIf X-Forwarded-Proto https HTTPS=on
 	
 	##### Redirect away from /index.php and /home	
 	##### Warning: This index.php rewrite will prevent Magento 
-	##### Connect from working. Simply comment out the 	
-	##### following two lines of code when using Connect.
+	##### Connect from working if the /downloader path is changed.
+	##### Simply change downloader to the new path of Magento Connect.
 	##### Please note - http://www. if not using www simply use http://
 	
+	RewriteCond %{REQUEST_URI}  !(downloader) [NC]
 	RewriteCond %{THE_REQUEST} ^.*/index.php
 	RewriteRule ^(.*)index.php$ http://www.yourdomain.com/$1 [R=301,L]
   
