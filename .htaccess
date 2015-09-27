@@ -109,6 +109,7 @@ SetEnvIf X-Forwarded-Proto https HTTPS=on
 	SecFilterScanPOST Off
 </IfModule> 
 
+##### If you change the downloader or admin path, change below:
 <LocationMatch  "/(admin|downloader)">
   <IfModule mod_security2.c>
     SecRuleEngine Off 
