@@ -106,10 +106,14 @@ SetEnvIf X-Forwarded-Proto https HTTPS=on
 ##### disable POST processing to not break multiple image upload #####
 
 <IfModule mod_security.c> 
-	SecFilterEngine Off 
 	SecFilterScanPOST Off
 </IfModule> 
 
+<LocationMatch  "/(admin|downloader)">
+  <IfModule mod_security2.c>
+    SecRuleEngine Off 
+  </IfModule>
+</LocationMatch>
 	
 ##### Enable apache served files compression #####
 
