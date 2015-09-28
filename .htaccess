@@ -104,17 +104,17 @@ SetEnvIf X-Forwarded-Proto https HTTPS=on
 
 
 ##### disable POST processing to not break multiple image upload #####
+# To disable mod_security in your VirtualHost configuration, add the following:
+# <LocationMatch  "/(admin|downloader)">
+#   <IfModule mod_security2.c>
+#     SecRuleEngine Off 
+#   </IfModule>
+# </LocationMatch>
 
 <IfModule mod_security.c> 
+	#SecRuleEngine Off 
 	SecFilterScanPOST Off
 </IfModule> 
-
-##### If you change the downloader or admin path, change below:
-<LocationMatch  "/(admin|downloader)">
-  <IfModule mod_security2.c>
-    SecRuleEngine Off 
-  </IfModule>
-</LocationMatch>
 	
 ##### Enable apache served files compression #####
 
