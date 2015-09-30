@@ -67,9 +67,9 @@ SetEnvIf X-Forwarded-Proto https HTTPS=on
 	RewriteEngine on
 	RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 	RewriteCond %{REQUEST_URI} !^/(media|skin|js)/
-	RewriteCond %{REQUEST_NAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-f
 	RewriteCond %{REQUEST_FILENAME} !-d
-	RewriteCond %{REQUEST_NAME} !-l
+	RewriteCond %{REQUEST_FILENAME} !-l
 	RewriteRule .* index.php [L]
 </IfModule>
 
