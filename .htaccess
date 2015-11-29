@@ -129,10 +129,17 @@ SetEnvIf X-Forwarded-Proto https HTTPS=on
 	AddOutputFilterByType DEFLATE application/rss+xml
 	AddOutputFilterByType DEFLATE application/javascript
 	AddOutputFilterByType DEFLATE application/x-javascript
+	AddOutputFilterByType DEFLATE application/x-httpd-php
+  	AddOutputFilterByType DEFLATE application/cgi-php5
+  	AddOutputFilterByType DEFLATE application/cgi-php53
+  	AddOutputFilterByType DEFLATE application/cgi-php54
 	BrowserMatch ^Mozilla/4 gzip-only-text/html
 	BrowserMatch ^Mozilla/4\.0[678] no-gzip
 	BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
 	SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png)$ no-gzip dont-vary
+	SetEnvIfNoCase Request_URI \.(?:exe|t?gz|zip|bz2|sit|rar)$ no-gzip dont-vary
+  	SetEnvIfNoCase Request_URI \.(?:pdf|doc)$ no-gzip dont-vary
+  	SetEnvIfNoCase Request_URI \.(?:avi|mov|mp3|mp4|rm)$ no-gzip dont-vary
 	Header append Vary User-Agent env=!dont-vary
 </IfModule>
 
