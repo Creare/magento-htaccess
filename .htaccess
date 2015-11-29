@@ -1,5 +1,6 @@
 #################################################################### 
 ################## Creare's Magento .htaccess File #################
+############ https://github.com/Creare/magento-htaccess ############
 #################################################################### 
 
 ### Prevent sftp-config.json from being loaded:
